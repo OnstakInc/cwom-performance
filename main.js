@@ -27,20 +27,20 @@ sequelize
         process.exit(0);
     });
 
-sequelize.query("SELECT * FROM Person.Person", { type: sequelize.QueryTypes.SELECT })
+sequelize.query("SELECT * FROM Person.Person;", { type: sequelize.QueryTypes.SELECT })
     .then(result => {
         console.log(result);
-        process.exit(0);
+        // process.exit(0);
     })
     .catch(err => {
         console.error('Unable to connect to the database:', err);
         process.exit(0);
     });
 
-sequelize.query("SELECT * FROM Sales.SalesPerson", { type: sequelize.QueryTypes.SELECT })
+sequelize.query("SELECT * FROM Sales.SalesPerson;", { type: sequelize.QueryTypes.SELECT })
     .then(result => {
         console.log(result);
-        process.exit(0);
+        // process.exit(0);
     })
     .catch(err => {
         console.error('Unable to connect to the database:', err);
