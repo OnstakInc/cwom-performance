@@ -20,7 +20,18 @@ sequelize
     .authenticate()
     .then(() => {
         console.log('Database connection established...');
+        process.exit(0);
     })
     .catch(err => {
         console.error('Unable to connect to the database:', err);
+        process.exit(0);
+    });
+
+sequelize.query("SELECT * FROM Person.Person", { type: sequelize.QueryTypes.SELECT })
+    .then(result => {
+        process.exit(0);
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+        process.exit(0);
     });
