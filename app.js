@@ -2,7 +2,7 @@
 
 require('appdynamics').profile({
     controllerHostName: process.env.APPD_HOST,
-    controllerPort: process.env.APPD_PORT,
+    controllerPort: parseInt(process.env.APPD_PORT),
     controllerSslEnabled: true,
     accountName: process.env.APPD_ACCOUNT,
     accountAccessKey: process.env.APPD_KEY,
