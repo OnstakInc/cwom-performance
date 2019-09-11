@@ -27,6 +27,17 @@ const DB_NAME = 'AdventureWorks2012';
 const DB_USERNAME = 'admin';
 const DB_PASSWORD = 'Onstak123';
 
+const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
+    host: DB_HOST,
+    dialect: 'mssql',
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
+});
+
 const app = express();
 
 app.use(morgan('dev'));
@@ -77,34 +88,12 @@ app.use((req, res, next) => {
 
 async function getPersons() {
 
-    const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
-        host: DB_HOST,
-        dialect: 'mssql',
-        pool: {
-            max: 5,
-            min: 0,
-            acquire: 30000,
-            idle: 10000
-        }
-    });
-
     let result = await sequelize.query('SELECT * FROM Person.Person;', { type: sequelize.QueryTypes.SELECT });
 
     return result;
 }
 
 async function getSales() {
-
-    const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
-        host: DB_HOST,
-        dialect: 'mssql',
-        pool: {
-            max: 5,
-            min: 0,
-            acquire: 30000,
-            idle: 10000
-        }
-    });
 
     let result = await sequelize.query('SELECT * FROM Sales.SalesPerson;', { type: sequelize.QueryTypes.SELECT });
 
