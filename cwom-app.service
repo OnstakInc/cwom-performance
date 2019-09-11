@@ -14,9 +14,6 @@ Environment=APPD_HOST=
 Environment=APPD_PORT=
 Environment=APPD_ACCOUNT=
 Environment=APPD_KEY=
-Environment=APPD_APP=TEC\ Datastore
-Environment=APPD_TIER=tec-datastore
-Environment=APPD_NODE=tec-datastore_01
 
 Environment=HOST=
 Environment=PORT=8080
