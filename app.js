@@ -6,9 +6,9 @@ require('appdynamics').profile({
     controllerSslEnabled: true,
     accountName: process.env.APPD_ACCOUNT,
     accountAccessKey: process.env.APPD_KEY,
-    applicationName: process.env.APPD_APP,
-    tierName: process.env.APPD_TIER,
-    nodeName: process.env.APPD_NODE
+    applicationName: 'TEC Datastore',
+    tierName: 'application',
+    nodeName: 'tec-datastore_01'
 });
 
 const http = require('http');
