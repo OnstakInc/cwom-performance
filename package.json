@@ -20,6 +20,7 @@
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
     "sequelize": "^5.18.4",
-    "tedious": "^6.3.0"
+    "tedious": "^6.3.0",
+    "appdynamics": "4.5.20"
   }
 }

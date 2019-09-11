@@ -1,5 +1,16 @@
 #!/usr/bin/env node
 
+require('appdynamics').profile({
+    controllerHostName: process.env.APPD_HOST,
+    controllerPort: process.env.APPD_PORT,
+    controllerSslEnabled: true,
+    accountName: process.env.APPD_ACCOUNT,
+    accountAccessKey: process.env.APPD_KEY,
+    applicationName: process.env.APPD_APP,
+    tierName: process.env.APPD_TIER,
+    nodeName: process.env.APPD_NODE
+});
+
 const http = require('http');
 const express = require('express');
 const morgan = require('morgan');
@@ -38,7 +49,7 @@ app.get('/api/v1/persons', async (req, res, next) => {
     try {
         let result = await getPersons();
         return res.json(result);
-    } catch(err) {
+    } catch (err) {
         console.log(err.message);
     }
 });
@@ -47,7 +58,7 @@ app.get('/api/v1/sales', async (req, res, next) => {
     try {
         let result = await getSales();
         return res.json(result);
-    } catch(err) {
+    } catch (err) {
         console.log(err.message);
     }
 });

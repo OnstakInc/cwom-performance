@@ -1,0 +1,27 @@
+[Unit]
+Description=CWOM App Service
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+
+RestartSec=10
+Restart=always
+
+Environment=APPD_HOST=
+Environment=APPD_PORT=
+Environment=APPD_ACCOUNT=
+Environment=APPD_KEY=
+Environment=APPD_APP=TEC Datastore
+Environment=APPD_TIER=tec-datastore
+Environment=APPD_NODE=tec-datastore_01
+
+Environment=HOST=
+Environment=PORT=8080
+
+ExecStart=/usr/bin/node /opt/cwom-performance/app.js
+
+[Install]
+WantedBy=multi-user.target
